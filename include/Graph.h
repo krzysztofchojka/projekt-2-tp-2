@@ -8,8 +8,7 @@
 #include <functional>
 #include <future>
 
-class Graph
-{
+class Graph{
 public:
     Graph(int vertices);
     void addEdge(int src, int dest);

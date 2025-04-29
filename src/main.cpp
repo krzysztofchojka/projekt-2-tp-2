@@ -7,8 +7,7 @@
 
 using namespace std;
 
-int main()
-{
+int main(){
     // Definicja dwóch różnych grafów
     Graph graph1(5);
     graph1.addEdge(0, 1);
@@ -28,12 +27,11 @@ int main()
 
     graph2.printGraph();
 
-
     // Funkcja lambda do uruchomienia DFS
     auto dfsFunction = [](Graph &g, int start)
     {
         vector<int> traversal = g.runDFSAsync(start).get();
-        string bufor = "Kolejność przeszukiwania wierzchołków: ";
+        string bufor = "\nKolejność przeszukiwania wierzchołków: ";
         for (const auto &vertex : traversal)
         {
             // Buforowane ściezki aby uniknąć mieszania się cout-ów z roznych watków

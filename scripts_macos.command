@@ -18,7 +18,6 @@ local exe_path="./build/src/main_exe"
 
 if [[ -x "$exe_path" ]]; then
 echo "Running main executable..."
-echo ""
 "$exe_path"
 else
 echo "Error: $exe_path not found or not executable."
