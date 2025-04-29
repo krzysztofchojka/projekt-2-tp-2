@@ -67,9 +67,15 @@ void Graph::printDFS(const vector<int> &traversal)
 
 future<vector<int>> Graph::runDFSAsync(int start)
 {
-    // Użycie packaged_task
-    packaged_task<vector<int>()> task([this, start]()
-                                      {
+// Użycie packaged_task
+packaged_task<vector<int>()> task([this, start]()
+{
+// Sprawdzenie, czy start jest poprawnym wierzchołkiem
+if (start < 0 || start >= numVertices) {
+// Zwróć pustą listę dla niepoprawnego wierzchołka
+return vector<int>();
+}
+
 vector<bool> visited(numVertices, false);
 stack<int> stack;
 vector<int> traversal;
@@ -93,9 +99,10 @@ stack.push(*it);
 }
 }
 
-return traversal; });
+return traversal;
+});
 
-    future<vector<int>> result = task.get_future();
-    thread(move(task)).detach(); // Uruchomienie zadania w osobnym wątku
-    return result;
+future<vector<int>> result = task.get_future();
+thread(move(task)).detach(); // Uruchomienie zadania w osobnym wątku
+return result;
 }
