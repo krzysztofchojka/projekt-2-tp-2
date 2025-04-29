@@ -12,6 +12,17 @@ void Graph::addEdge(int src, int dest)
     }
 }
 
+void Graph::printGraph(){
+    cout << "Lista sąsiedztwa grafu:" << endl;
+    for (int i = 0; i < numVertices; ++i){
+        cout << "Wierzchołek " << i << ": ";
+        for (const auto &dest : adjList[i]){
+            cout << dest << " ";
+        }
+        cout << endl;
+    }
+}
+
 void Graph::DFS(int start)
 {
     vector<bool> visited(numVertices, false);

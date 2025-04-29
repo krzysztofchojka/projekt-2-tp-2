@@ -15,6 +15,7 @@ public:
     void addEdge(int src, int dest);
     void DFS(int start);
     void printDFS(const std::vector<int> &traversal);
+    void printGraph();
 
     // Metoda do przetwarzania DFS w osobnym wątku
     std::future<std::vector<int>> runDFSAsync(int start);

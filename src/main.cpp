@@ -3,6 +3,7 @@
 #include <thread>
 #include <vector>
 #include <future>
+#include <cstring>
 
 using namespace std;
 
@@ -15,6 +16,8 @@ int main()
     graph1.addEdge(1, 3);
     graph1.addEdge(1, 4);
 
+    graph1.printGraph();
+
     Graph graph2(4);
     graph2.addEdge(0, 1);
     graph2.addEdge(0, 2);
@@ -23,16 +26,19 @@ int main()
     graph2.addEdge(2, 3);
     graph2.addEdge(3, 3);
 
+    graph2.printGraph();
+
+
     // Funkcja lambda do uruchomienia DFS
     auto dfsFunction = [](Graph &g, int start)
     {
         vector<int> traversal = g.runDFSAsync(start).get();
-        cout << "DFS Traversal (async): ";
+        string bufor = "DFS Traversal (async): ";
         for (const auto &vertex : traversal)
         {
-            cout << vertex << " ";
+            bufor+=(to_string(vertex)+" ");
         }
-        cout << endl;
+        cout<<bufor<<endl;
     };
 
     // Uruchomienie osobnych wątków dla każdego grafu
