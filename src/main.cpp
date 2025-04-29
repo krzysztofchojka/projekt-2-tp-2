@@ -33,9 +33,10 @@ int main()
     auto dfsFunction = [](Graph &g, int start)
     {
         vector<int> traversal = g.runDFSAsync(start).get();
-        string bufor = "DFS Traversal (async): ";
+        string bufor = "Kolejność przeszukiwania wierzchołków: ";
         for (const auto &vertex : traversal)
         {
+            // Buforowane ściezki aby uniknąć mieszania się cout-ów z roznych watków
             bufor+=(to_string(vertex)+" ");
         }
         cout<<bufor<<endl;
