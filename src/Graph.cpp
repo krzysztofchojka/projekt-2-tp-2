@@ -89,6 +89,6 @@ future<vector<int>> Graph::runDFSAsync(int start){
     });
 
     future<vector<int>> result = task.get_future();
-    thread(move(task)).detach(); // Uruchomienie zadania w osobnym wątku
+    thread(std::move(task)).detach(); // Uruchomienie zadania w osobnym wątku
     return result;
 }
