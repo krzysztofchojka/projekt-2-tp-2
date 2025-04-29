@@ -39,6 +39,20 @@ target_link_libraries(test8 PRIVATE GraphLib)
 target_link_libraries(test9 PRIVATE GraphLib)
 target_link_libraries(test10 PRIVATE GraphLib)
 
+target_include_directories(cmpVectorsFunc PUBLIC ../include)
+
+# Linkowanie funkcji cmpVectorsFunc to wszystkich testow
+target_link_libraries(test1 PRIVATE cmpVectorsFunc)
+target_link_libraries(test2 PRIVATE cmpVectorsFunc)
+target_link_libraries(test3 PRIVATE cmpVectorsFunc)
+target_link_libraries(test4 PRIVATE cmpVectorsFunc)
+target_link_libraries(test5 PRIVATE cmpVectorsFunc)
+target_link_libraries(test6 PRIVATE cmpVectorsFunc)
+target_link_libraries(test7 PRIVATE cmpVectorsFunc)
+target_link_libraries(test8 PRIVATE cmpVectorsFunc)
+target_link_libraries(test9 PRIVATE cmpVectorsFunc)
+target_link_libraries(test10 PRIVATE cmpVectorsFunc)
+
 enable_testing()
 ##add_test(NAME GraphTests COMMAND tests)
 add_test(NAME Graf_prosty COMMAND test1)

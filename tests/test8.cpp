@@ -1,20 +1,11 @@
 #include "Graph.h"
+#include "compareVectors.h"
 #include <cassert>
 #include <iostream>
 #include <vector>
 #include <future>
 
 using namespace std;
-
-// Funkcja pomocnicza do porównywania dwóch wektorów
-bool compareVectors(const vector<int>& a, const vector<int>& b) {
-    if (a.size() != b.size()) return false;
-    for(size_t i = 0; i < a.size(); ++i){
-        if(a[i] != b[i])
-            return false;
-    }
-    return true;
-}
 
 int main(){
 
