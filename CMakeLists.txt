@@ -7,3 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Dodanie podkatalogów
 add_subdirectory(src)
 add_subdirectory(tests)
+
+# Enable testing
+enable_testing()

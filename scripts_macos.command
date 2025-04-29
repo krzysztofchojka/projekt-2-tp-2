@@ -7,7 +7,8 @@ echo " Scripts "
 echo "---------------------------------"
 echo "c - Recompile project"
 echo "r - Run main executable"
-echo "t - Run tests"
+echo "d - Run tests/test_main.cpp"
+echo "t - Run tests via ctest"
 echo "q - Quit"
 echo "---------------------------------"
 }
@@ -35,6 +36,18 @@ else
 echo "Error: $test_path not found or not executable."
 exit 1
 fi
+}
+
+ctest_func() {
+local build_dir="./build"
+echo "Starting recompilation process..."
+if [[ ! -d "$build_dir" ]]; then
+echo "Build directory does not exist. Creating '$build_dir'..."
+mkdir -p "$build_dir"
+fi
+cd "$build_dir"
+ctest .
+cd - >/dev/null
 }
 
 recompile() {
@@ -70,8 +83,11 @@ case "$choice" in
 r|R)
 run_main
 ;;
-t|T)
+d|D)
 run_tests
+;;
+t|T)
+ctest_func
 ;;
 c|C)
 recompile
