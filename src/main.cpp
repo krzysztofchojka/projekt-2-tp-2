@@ -3,7 +3,7 @@
 #include <thread>
 #include <vector>
 #include <future>
-#include <cstring>
+#include <string>
 #ifdef _WIN32
 #include <windows.h>
 #endif
