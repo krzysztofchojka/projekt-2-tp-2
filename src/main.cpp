@@ -4,27 +4,54 @@
 #include <vector>
 #include <future>
 #include <cstring>
+#include <windows.h>
 
 using namespace std;
 
-int main(){
-    // Definicja dwóch różnych grafów
-    Graph graph1(5);
-    graph1.addEdge(0, 1);
-    graph1.addEdge(0, 2);
-    graph1.addEdge(1, 3);
-    graph1.addEdge(1, 4);
+Graph defineGraph(){
+    int vertices, a, b;
 
+    while (true){
+        cout << "Podaj liczbe wierzchołków grafu: ";
+        cin >> vertices;
+        if (vertices < 0){
+            cout << "Podano nieprawidłową liczbę" << endl;
+        } else{
+            break;
+        }
+    }
+
+    Graph graph(vertices);
+    
+    while (true){
+        cout << "Aby zakończyć dodawanie krawędzi podaj -1" << endl;
+        cout << "Podaj po spacji dwie liczby od 0 do " << vertices - 1 << " aby dodać kierunkową krawędź grafu A -> B" << endl;
+        cin >> a;
+        if (a == -1) break;
+        cin >> b;
+        if (a < 0 || a >= vertices) cout << "Podano zły wierzchołek A" << endl;
+        else if (b < 0 || b >= vertices) cout << "Podano zły wierzchołek B" << endl;
+        else graph.addEdge(a, b);
+    }
+
+    return graph;
+}
+
+int main(){
+    #ifdef _WIN32
+        SetConsoleOutputCP(CP_UTF8);
+    #endif
+
+    // Definicja dwóch różnych grafów
+
+    cout << endl << "Graf 1:" << endl;
+    
+    Graph graph1 = defineGraph();
     graph1.printGraph();
 
-    Graph graph2(4);
-    graph2.addEdge(0, 1);
-    graph2.addEdge(0, 2);
-    graph2.addEdge(1, 2);
-    graph2.addEdge(2, 0);
-    graph2.addEdge(2, 3);
-    graph2.addEdge(3, 3);
-
+    cout << endl << "Graf 2:" << endl;
+    
+    Graph graph2 = defineGraph();
     graph2.printGraph();
 
     // Funkcja lambda do uruchomienia DFS
