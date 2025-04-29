@@ -4,7 +4,9 @@
 #include <vector>
 #include <future>
 #include <cstring>
+#ifdef _WIN32
 #include <windows.h>
+#endif
 
 using namespace std;
 
@@ -69,7 +71,7 @@ int main(){
 
     // Uruchomienie osobnych wątków dla każdego grafu
     thread thread1(dfsFunction, ref(graph1), 0);
-    thread thread2(dfsFunction, ref(graph2), 2);
+    thread thread2(dfsFunction, ref(graph2), 0);
 
     // Czekanie na zakończenie wątków
     thread1.join();
