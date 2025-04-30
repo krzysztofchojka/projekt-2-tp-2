@@ -115,7 +115,7 @@ Projekt składa się z następujących plików:
 - Uruchamia dla każdego grafu asynchroniczne przeszukiwanie DFS przy użyciu `runDFSAsync`.
 - Odbiera i wypisuje wyniki po zakończeniu wątków.
 
-Plik `compareVectors.cpp`
+#### Plik `compareVectors.cpp`
 - **bool compareVectors(const std::vector<int>& a, const std::vector<int>& b)**: Przyjmuje dwa wektory a oraz b i porównuje je.
 - Sprawdza, czy długości wektorów są takie same. Jeśli nie, zwraca false.
 - Iteruje przez oba wektory i porównuje elementy o tych samych indeksach. Jeśli napotka różnice, zwraca false.
