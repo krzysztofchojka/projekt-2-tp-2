@@ -77,8 +77,8 @@ Projekt składa się z następujących plików:
 - `src/Graph.cpp`: Implementacja metod klasy Graph.
 - `src/compareVectors.cpp`: Implementacja funkcji compareVectors.
 - `src/main.cpp`: Funkcja główna programu, wczytująca grafy i uruchamiająca przeszukiwanie DFS w osobnych wątkach.
-- `tests/*.cpp` - 10 różnych testów, każy z innym roadzej grafu.
-- `tests/test_main.cpp` - pierwsza wersja testów, nie używane
+- `tests/*.cpp`: 10 różnych testów, każy z innym roadzej grafu.
+- `tests/test_main.cpp`: pierwsza wersja testów, nie używane
 
 ---
 
